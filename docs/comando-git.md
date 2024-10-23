@@ -29,5 +29,7 @@
 ```
 # git add .
 
-# Git commit -m "nombre proyecto"
+# git commit -m "nombre proyecto"
+
+# git push -f origin master
 ```
