@@ -20,3 +20,8 @@ nest g res modules/users
 nest g co modules/auth
 nest g s modules/auth
 ```
+
+# para que no este con error el class-validator
+```
+npm i --save class-validator class-transformer
+```
