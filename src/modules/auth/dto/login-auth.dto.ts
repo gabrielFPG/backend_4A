@@ -1,10 +1,14 @@
-import { IsEmail, IsNotEmpty } from "class-validator";
+import { IsEmail, IsNotEmpty, MinLength, MaxLength } from "class-validator";
 import {User} from "../interfaces/user.interface";
 
 export class LoginAutgDto implements User{
-
-    @IsNotEmpty()
+    
     @IsEmail()
+    @IsNotEmpty()
     email:string;
+
+    @MinLength(6)
+    @MaxLength(25)
+    @IsNotEmpty()
     password: string;
 }
