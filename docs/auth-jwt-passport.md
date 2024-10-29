@@ -25,3 +25,19 @@ nest g s modules/auth
 ```
 npm i --save class-validator class-transformer
 ```
+
+# para instalar swagger
+```
+npm install --save @nestjs/swagger
+```
+
+# database
+```
+nest g mo database
+```
+
+# para typeOrm
+```
+npm install typeorm @nestjs/typeorm pg
+```
+

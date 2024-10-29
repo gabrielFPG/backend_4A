@@ -35,3 +35,10 @@
 # o
 # git push -u origin main
 ```
+
+# para actualizar en la potra pc
+```
+# git pull
+# luego 
+# npm install
+```
