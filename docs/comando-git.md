@@ -32,4 +32,6 @@
 # git commit -m "nombre proyecto"
 
 # git push -f origin master
+# o
+# git push -u origin main
 ```
