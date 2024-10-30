@@ -7,12 +7,12 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   //class validator
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(3000);
 
   //swagger
   const config = new DocumentBuilder()
     .setTitle('Cats example')
     .setDescription('The PRoduct API descrption')
+    .setVersion('1.0')
     .addTag('product')
     .build();
   const document = SwaggerModule.createDocument(app, config);

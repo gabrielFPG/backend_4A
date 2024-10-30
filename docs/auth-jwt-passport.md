@@ -41,3 +41,14 @@ nest g mo database
 npm install typeorm @nestjs/typeorm pg
 ```
 
+# para variables de entorno en contraseñas y el servidor
+```
+nest g mo config
+nest g s config 
+```
+
+# instalacion del paquete config
+```
+npm i --save @nestjs/config
+```
+
