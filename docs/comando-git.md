@@ -31,8 +31,11 @@
 
 # git commit -m "nombre proyecto"
 
+# front
 # git push -f origin master
 # o
+
+# backend
 # git push -u origin main
 ```
 
