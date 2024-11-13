@@ -93,3 +93,50 @@ nest g res modules/cliente
 ```
 nest g res modules/pedido
 ```
+
+# instalar angular
+```
+npm install -g @angular/cli
+```
+
+# FRONT
+
+# crear carpeta front
+```
+ng new front_angular_nest_GP
+```
+
+# crear carpetas
+```
+ng g m web --routing
+ng g m auth --routing
+ng g m admin --routing
+
+---
+
+ng g c web/inicio --no-standalone
+ng g c web/blog
+ng g c web/nosotros --skip-tests --inline-style --inline-template
+
+---
+
+ng g c auth/components/login --no-standalone --skip-tests
+ng g c auth/components/register --no-standalone --skip-tests
+
+---
+
+ng g c admin/components/perfil --no-standalone --skip-tests
+
+---
+ng g m admin/inventario
+ng g c admin/inventario/components/producto --no-standalone --skip-tests
+ng g c admin/inventario/components/categoria --no-standalone --skip-tests
+
+---
+
+ng g c admin/components/cliente --no-standalone --skip-tests
+ng g m admin/pedido
+ng g c admin/pedido/components/lista-pedido --no-standalone --skip-tests
+ng g c admin/pedido/components/nuevo-pedido --no-standalone --skip-tests
+```
+
