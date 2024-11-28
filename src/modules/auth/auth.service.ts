@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { LoginAuthDto } from './dto/login-auth.dto';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../users/entities/user.entity';
 import { Repository } from 'typeorm';
 import { RegisterAuthDto } from './dto/register-auth.dto';
-import { hash } from 'bcrypt';
+import { hash, compare } from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -25,11 +25,23 @@ export class AuthService {
         return this.userRepository.save(objUser)
     }
 
-    login(credenciales: LoginAuthDto){
+    async login(credenciales: LoginAuthDto){
 
-        let payload={email:"admin@gmail.com", id:1}  //ojo las comillas
+        const {email, password}=credenciales
+        const user= await this.userRepository.findOne({
+            where:{
+                email: email
+            }
+        })
+        if(!user) return new HttpException('Usuario no encontrado', 404);
+
+        const verify = await compare(password, user.password)
+
+        if(!verify) throw new HttpException('Contraseña incorrecta', 401);
+
+        let payload={email:user.email, id:user.id}  //ojo las comillas
         const token= this.jwtService.sign(payload)
-        return {token:token};
+        return {user:user, token:token};
 
     }
 }
