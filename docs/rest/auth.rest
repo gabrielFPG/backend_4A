@@ -4,7 +4,7 @@ Content-Type: application/json
 {
     "name":"prueba",
     "email":"gf@gm.com",
-    "password":"1234567"
+    "password":"123456"
 
 }
 
@@ -25,4 +25,4 @@ Content-Type: application/json
 ### users
 
 GET http://127.0.0.1:3000/users
-Authorization: Bearer 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3MzI3NzAyNTYsImV4cCI6MTczMjc3MDMxNn0.YDTFHJjMCnllfGuIYVVbr7Zu3esKN9M-1gxdcvi94Vg

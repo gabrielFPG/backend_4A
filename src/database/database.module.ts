@@ -1,32 +1,27 @@
 import { Module } from '@nestjs/common';
-import { databaseProvider } from './database.providers';
+import { databaseProviders } from './database.providers'; // Corrección en nombre
 import { ConfigService } from 'src/config/config.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from 'src/config/config.module';
 
 @Module({
-    imports:[
-        TypeOrmModule.forRootAsync({
-            imports:[ConfigModule],
-            inject:[ConfigService],
-            useFactory:(config: ConfigService)=>({
-                type:'postgres',
-                host:config.get('HOST') ||'localhost',
-                port: +config.get('PORT_BD'),
-                username: config.get('USERNAME')||'root',
-                password: config.get('PASSWORD')|| 'prueba',
-                database: config.get('DATABSE'),
-                entities: [
-                    __dirname + '/../**/*.entity{.ts,.js}',
-                ],
-
-            })
-        })
-    ],
-    
-    providers:[...databaseProvider, ConfigService],
-    exports:[...databaseProvider]
+  imports: [
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => ({
+        type: 'postgres',
+        host: config.get('HOST') || 'localhost',
+        port: +config.get('PORT_BD') || 5432,
+        username: config.get('USERNAME') || 'root',
+        password: config.get('PASSWORD') || 'prueba',
+        database: config.get('DATABASE'),
+        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+        synchronize: true, // Cambia a false en producción
+      }),
+    }),
+  ],
+  providers: [...databaseProviders, ConfigService],
+  exports: [...databaseProviders], // Exporta los proveedores para otros módulos
 })
-export class DatabaseModule {
-
-}
+export class DatabaseModule {}

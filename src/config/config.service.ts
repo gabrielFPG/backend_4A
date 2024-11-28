@@ -1,23 +1,37 @@
 import { Injectable } from '@nestjs/common';
-import * as fs from 'fs'
-import {parse} from "dotenv"
+import * as fs from 'fs';
+import { parse } from 'dotenv';
 
 @Injectable()
 export class ConfigService {
-    private readonly envConfig: {[key:string]:string}
-    constructor(){
-        const env =process.env.NODE_ENV || 'development'
-            const envFilePath= `${__dirname}/.env${env}`
-            const existsPath = fs.existsSync(envFilePath)
-            if(!existsPath){
-                console.log(`.env.${process.env.NODE_ENV} no existe`)
-                process.exit(0)
-            }
-            this.envConfig=parse(fs.readFileSync(envFilePath))
-        
-        //console.log('**********',envFilePath)
+  private readonly envConfig: { [key: string]: string };
+
+  constructor() {
+    const env = process.env.NODE_ENV || 'development';
+    const envFilePath = `${process.cwd()}/.env.${env}`; // Uso de backticks para interpolación correcta
+    console.log(`Buscando archivo de entorno en: ${envFilePath}`);
+
+    if (!fs.existsSync(envFilePath)) {
+      console.error(`Archivo .env.${env} no existe en la ruta: ${envFilePath}`);
+      
+      // Fallback a un archivo genérico .env
+      const fallbackFilePath = `${process.cwd()}/.env`; // Uso de backticks aquí también
+      if (fs.existsSync(fallbackFilePath)) {
+        console.warn(`Usando archivo de configuración genérico en: ${fallbackFilePath}`);
+        this.envConfig = parse(fs.readFileSync(fallbackFilePath));
+      } else {
+        console.error('No se encontró ningún archivo de configuración válido. Finalizando la aplicación.');
+        process.exit(0);
+      }
+    } else {
+      // Carga el archivo específico del entorno
+      this.envConfig = parse(fs.readFileSync(envFilePath));
     }
-    get(key: string): string{
-        return this.envConfig[key];
-    }
+
+    console.log('Variables de entorno cargadas correctamente:', this.envConfig);
+  }
+
+  get(key: string): string {
+    return this.envConfig[key];
+  }
 }
