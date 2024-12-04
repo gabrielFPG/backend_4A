@@ -15,9 +15,9 @@ POST http://127.0.0.1:3000/auth/login
 Content-Type: application/json
 
 {
-    "name":"prueba2",
-    "email":"gf2@gm.com",
-    "password":"1234567"
+    "name":"prueba",
+    "email":"gf@gm.com",
+    "password":"123456"
 
 }
 
@@ -25,4 +25,4 @@ Content-Type: application/json
 ### users
 
 GET http://127.0.0.1:3000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlkIjoxLCJpYXQiOjE3MzI3NzAyNTYsImV4cCI6MTczMjc3MDMxNn0.YDTFHJjMCnllfGuIYVVbr7Zu3esKN9M-1gxdcvi94Vg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdmQGdtLmNvbSIsImlkIjoyLCJpYXQiOjE3MzMzMjQyMzgsImV4cCI6MTczMzMyNDI5OH0.hMaJWK6803xzMB7JwLkJyqTGVJ1dHmHFBxeZzRrF8fs"

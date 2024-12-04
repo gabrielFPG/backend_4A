@@ -1,0 +1,9 @@
+### listar productos
+GET http://localhost:3000/producto
+
+### crear producto
+POST http://localhost:3000/producto
+content-Content-Type: application/json
+{
+    "nombre":"teclado"
+}

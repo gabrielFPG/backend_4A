@@ -6,13 +6,13 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({type:'varchar',length:50})
+    @Column()
     name:string;
 
-    @Column({type:'varchar', length:255,unique:true})
+    @Column()
     email:string;
 
-    @Column({type:'varchar', length:200})
+    @Column()
     password:string;
 
     @OneToOne(()=>Persona, persona=>persona.user,{cascade:true})

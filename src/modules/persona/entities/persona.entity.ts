@@ -7,10 +7,10 @@ export class Persona{
     id: number;
 
     @Column()
-    nombres: string
+    nombres: string;
 
     @Column()
-    apellidos: string
+    apellidos: string;
 
     @OneToOne (()=>User, user=>user.persona)
     @JoinColumn()
