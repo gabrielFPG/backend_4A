@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "name":"prueba3",
-    "mail":"gabriel@live.com",
+    "mail":"hidalgo11141@gmail.com",
     "password":"123456"
 
 }
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 {
     "name":"prueba3",
-    "mail":"gabriel@live.com",
+    "mail":"hidalgo11141@gmail.com",
     "password":"123456"
 }
 
