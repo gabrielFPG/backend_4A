@@ -4,12 +4,9 @@ import { CreateProductoDto } from './dto/create-producto.dto';
 import { UpdateProductoDto } from './dto/update-producto.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
-import { last } from 'rxjs';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
-
-@UseGuards(JwtAuthGuard) //con esto ya no podemos acceder a productos
-@ApiBearerAuth() //esto es pal swagger
+@ApiBearerAuth() 
 @ApiTags('producto')
 @Controller('producto')
 export class ProductoController {

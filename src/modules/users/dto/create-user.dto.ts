@@ -13,7 +13,7 @@ export class CreateUserDto {
     email: string;
 
     @ApiProperty({description:'Contraseña de usuario' })
-    @MinLength(6,{message: 'La contraseña debe tener como mínimo 6 caracteres'})
+    @MinLength(6,{message: 'La contraseña debe tener como minimo 6 caracteres'})
     @IsString({message:'La contraseña debe ser una cadena'})
     password: string;
 }

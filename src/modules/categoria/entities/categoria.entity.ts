@@ -5,15 +5,12 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 @Entity()
 export class Categoria {
     @PrimaryGeneratedColumn()
-    
     id: number;
 
-    @Column({type: 'varchar',length: 50})
+    @Column({type: 'varchar',length: 50, nullable:true})
     nombre: string;           
 
-  
-
-    @Column({type:'text', nullable:true}) //con esto permitimos que el campo sea nuelo
+    @Column({type:'text', nullable:true})
     detalle: string;
 
     @OneToMany(()=>Producto, (prod)=>prod.categoria)

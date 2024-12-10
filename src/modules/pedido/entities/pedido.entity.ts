@@ -2,8 +2,6 @@ import { Cliente } from "../../cliente/entities/cliente.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { PedidoProducto } from "./pedidoproducto.entity";
 
-
-
 @Entity('pedidos')
 export class Pedido {
     @PrimaryGeneratedColumn()
